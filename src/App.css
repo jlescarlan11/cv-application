@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+
+.container {
+  display: flex;
+}
+
+.container > * {
+  padding: 100px;
+}

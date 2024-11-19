@@ -1,8 +1,15 @@
 import { useState } from "react";
 import "./App.css";
+import Content from "./Content";
+import Sidebar from "./Sidebar";
 
 function App() {
-  return <></>;
+  return (
+    <div className="container">
+      <Sidebar />
+      <Content />
+    </div>
+  );
 }
 
 export default App;
