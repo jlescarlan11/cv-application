@@ -1,8 +1,17 @@
 import "./styles/Sidebar.css";
-export default function Sidebar() {
+import Header from "./Header";
+
+const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   return (
-    <>
-      <h1>Hello Sidebar!</h1>
-    </>
+    <div className="sidebar">
+      <Header
+        isSidebarOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        context="sidebar"
+      ></Header>
+      <p>Hello Sidebar!</p>
+    </div>
   );
-}
+};
+
+export default Sidebar;

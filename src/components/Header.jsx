@@ -1,14 +1,42 @@
 import "./styles/Header.css";
 
-export default function SidebarHeader() {
+const Header = ({ isSidebarOpen, toggleSidebar, context }) => {
+  const renderIcons = () => {
+    if (context === "mainContent" && !isSidebarOpen) {
+      return (
+        <>
+          <span className="material-symbols-outlined" onClick={toggleSidebar}>
+            view_sidebar
+          </span>
+          <span className="material-symbols-outlined">download</span>
+        </>
+      );
+    } else if (context === "sidebar" && isSidebarOpen) {
+      return (
+        <>
+          <div className="sidebar-header">
+            <span className="material-symbols-outlined" onClick={toggleSidebar}>
+              view_sidebar
+            </span>
+            <span className="material-symbols-outlined">download</span>
+          </div>
+        </>
+      );
+    }
+    return null;
+  };
+
   return (
     <header>
       <div className="header-left">
-        <span class="material-symbols-outlined">view_sidebar</span>
-        <span class="material-symbols-outlined">download</span>
-        <p>CV Application Builder</p>
+        {renderIcons()}
+        {context === "mainContent" && <p>CV Application Builder</p>}
       </div>
-      <span class="material-symbols-outlined">light_mode</span>
+      {context === "mainContent" && (
+        <span className="material-symbols-outlined">light_mode</span>
+      )}
     </header>
   );
-}
+};
+
+export default Header;

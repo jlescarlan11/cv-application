@@ -1,7 +1,17 @@
-export default function Content() {
+import Header from "./Header";
+import "./styles/Content.css";
+
+const Content = ({ isSidebarOpen, toggleSidebar }) => {
   return (
-    <>
-      <h1>Hello Content!</h1>
-    </>
+    <div className="main-content">
+      <Header
+        isSidebarOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        context="mainContent"
+      ></Header>
+      <p>Hello content!</p>
+    </div>
   );
-}
+};
+
+export default Content;

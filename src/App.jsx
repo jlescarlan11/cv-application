@@ -2,16 +2,18 @@ import { useState } from "react";
 import "./App.css";
 import Content from "./components/Content";
 import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prevState) => !prevState);
+  };
+
   return (
-    <div className="layout">
-      <Header />
-      <div className="container">
-        <Sidebar />
-        <Content />
-      </div>
+    <div className="container">
+      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <Content isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </div>
   );
 }

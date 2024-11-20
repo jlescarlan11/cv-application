@@ -1,13 +1,17 @@
-.layout {
-  padding: 0 50px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .container {
+  padding: 0 50px;
   display: flex;
-  gap: 50px;
+  width: 100%;
 }
 
 .container > * {
   border: 1px solid yellow;
+  height: 100vh;
   padding: 10px;
 }
