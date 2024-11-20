@@ -5,15 +5,34 @@ import Sidebar from "./components/Sidebar";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prevState) => !prevState);
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevState) => !prevState);
+  };
+
+  const rootStyle = isDarkMode
+    ? { backgroundColor: "#fff", color: "#242424" }
+    : {};
+
   return (
-    <div className="container">
-      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Content isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+    <div className="container" style={rootStyle}>
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
+      <Content
+        isSidebarOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
     </div>
   );
 }

@@ -1,8 +1,14 @@
 import "./styles/Header.css";
 
-const Header = ({ isSidebarOpen, toggleSidebar, context }) => {
+const Header = ({
+  isSidebarOpen,
+  toggleSidebar,
+  isDarkMode,
+  toggleDarkMode,
+  context,
+}) => {
   const renderIcons = () => {
-    if (context === "mainContent" && !isSidebarOpen) {
+    if (context === "content" && !isSidebarOpen) {
       return (
         <>
           <span className="material-symbols-outlined" onClick={toggleSidebar}>
@@ -30,10 +36,12 @@ const Header = ({ isSidebarOpen, toggleSidebar, context }) => {
     <header>
       <div className="header-left">
         {renderIcons()}
-        {context === "mainContent" && <p>CV Application Builder</p>}
+        {context === "content" && <p>CV Application Builder</p>}
       </div>
-      {context === "mainContent" && (
-        <span className="material-symbols-outlined">light_mode</span>
+      {context === "content" && (
+        <span className="material-symbols-outlined" onClick={toggleDarkMode}>
+          {isDarkMode ? "light_mode" : "dark_mode"}
+        </span>
       )}
     </header>
   );

@@ -1,13 +1,20 @@
 import Header from "./Header";
 import "./styles/Content.css";
 
-const Content = ({ isSidebarOpen, toggleSidebar }) => {
+const Content = ({
+  isSidebarOpen,
+  toggleSidebar,
+  isDarkMode,
+  toggleDarkMode,
+}) => {
   return (
-    <div className="main-content">
+    <div className="content">
       <Header
         isSidebarOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
-        context="mainContent"
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+        context="content"
       ></Header>
       <p>Hello content!</p>
     </div>
