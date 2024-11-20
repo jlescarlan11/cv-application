@@ -1,3 +1,9 @@
+aside {
+  padding: 0 1rem;
+  width: 25rem;
+  border-right: 1px solid red;
+}
+
 .sidebar-header {
   display: flex;
   width: 100%;

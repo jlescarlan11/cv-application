@@ -8,7 +8,7 @@ const Sidebar = ({
   toggleDarkMode,
 }) => {
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <Header
         isSidebarOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
@@ -16,8 +16,10 @@ const Sidebar = ({
         toggleDarkMode={toggleDarkMode}
         context="sidebar"
       ></Header>
-      <p>Hello Sidebar!</p>
-    </div>
+      <div className="sidebar-content">
+        <p>Hello Sidebar!</p>
+      </div>
+    </aside>
   );
 };
 

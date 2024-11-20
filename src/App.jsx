@@ -16,7 +16,7 @@ function App() {
   };
 
   const rootStyle = isDarkMode
-    ? { backgroundColor: "#fff", color: "#242424" }
+    ? { backgroundColor: "#222831", color: "#EEEEEE" }
     : {};
 
   return (
