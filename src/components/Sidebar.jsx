@@ -1,5 +1,8 @@
+import { useState } from "react";
+
 import "./styles/Sidebar.css";
 import Header from "./Header";
+import BasicInfo from "./BasicInfo";
 
 const Sidebar = ({
   isSidebarOpen,
@@ -16,8 +19,9 @@ const Sidebar = ({
         toggleDarkMode={toggleDarkMode}
         context="sidebar"
       ></Header>
+
       <div className="sidebar-content">
-        <p>Hello Sidebar!</p>
+        <BasicInfo></BasicInfo>
       </div>
     </aside>
   );

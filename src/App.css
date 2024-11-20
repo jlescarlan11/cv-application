@@ -12,3 +12,20 @@
 .container > * {
   height: 100vh;
 }
+
+.form-fieldset {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  column-gap: 10rem;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  flex: 1;
+  border: 1px solid rgba(34, 40, 49, 0.3);
+}
