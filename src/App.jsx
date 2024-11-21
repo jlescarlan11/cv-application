@@ -21,12 +21,14 @@ function App() {
 
   return (
     <div className="container" style={rootStyle}>
-      <Sidebar
-        isSidebarOpen={isSidebarOpen}
-        toggleSidebar={toggleSidebar}
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
-      />
+      {isSidebarOpen && (
+        <Sidebar
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+        />
+      )}
       <Content
         isSidebarOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}

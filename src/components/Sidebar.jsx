@@ -10,6 +10,12 @@ const Sidebar = ({
   isDarkMode,
   toggleDarkMode,
 }) => {
+  const [basicInfoValues, setBasicInfoValues] = useState({});
+
+  const handleBasicInfoChanges = (values) => {
+    setBasicInfoValues(values);
+  };
+
   return (
     <aside className="sidebar">
       <Header
@@ -21,7 +27,7 @@ const Sidebar = ({
       ></Header>
 
       <div className="sidebar-content">
-        <BasicInfo></BasicInfo>
+        <BasicInfo onValuesChange={handleBasicInfoChanges}></BasicInfo>
       </div>
     </aside>
   );
