@@ -6,6 +6,7 @@ const Content = ({
   toggleSidebar,
   isDarkMode,
   toggleDarkMode,
+  formData,
 }) => {
   return (
     <div className="content">
@@ -16,7 +17,38 @@ const Content = ({
         toggleDarkMode={toggleDarkMode}
         context="content"
       ></Header>
-      <p>Hello content!</p>
+      <div className="resume-content">
+        <div>
+          <h3>Basic Info</h3>
+          <div>
+            {formData.basicInfo.map((item) => (
+              <div key={item.id}>
+                <strong>{item.label}:</strong> {item.value || "(Not Provided)"}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3>Education Info</h3>
+          <div>
+            {formData.educationInfo.map((item) => (
+              <div key={item.id}>
+                <strong>{item.label}:</strong> {item.value || "(Not Provided)"}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3>Experience Info</h3>
+          <div>
+            {formData.experienceInfo.map((item) => (
+              <div key={item.id}>
+                <strong>{item.label}:</strong> {item.value || "(Not Provided)"}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

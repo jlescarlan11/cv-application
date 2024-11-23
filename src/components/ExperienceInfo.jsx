@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "./styles/BasicInfo.css";
+import "./styles/EducationInfo.css";
 
-const BasicInfo = ({ data, onUpdate }) => {
+const ExperienceInfo = ({ data, onUpdate }) => {
   return (
     <div>
-      <h3>Basic Info</h3>
+      <h3>Experience</h3>
       <div>
         {data.map((item) => (
           <div key={item.id}>
@@ -32,4 +32,4 @@ const BasicInfo = ({ data, onUpdate }) => {
   );
 };
 
-export default BasicInfo;
+export default ExperienceInfo;

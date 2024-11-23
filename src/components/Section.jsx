@@ -1,13 +1,10 @@
-import { useState } from "react";
-import "./styles/BasicInfo.css";
-
-const BasicInfo = ({ data, onUpdate }) => {
+const Section = ({ title, data, onUpdate }) => {
   return (
     <div>
-      <h3>Basic Info</h3>
-      <div>
+      <h3>{title}</h3>
+      <ul>
         {data.map((item) => (
-          <div key={item.id}>
+          <li key={item.id}>
             <label>
               {item.label}:
               {item.inputType === "textarea" ? (
@@ -21,15 +18,14 @@ const BasicInfo = ({ data, onUpdate }) => {
                   value={item.value}
                   onChange={(e) => onUpdate(item.id, e.target.value)}
                   placeholder={item.placeholder}
-                  type={item.type}
                 />
               )}
             </label>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
 
-export default BasicInfo;
+export default Section;

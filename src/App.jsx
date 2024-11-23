@@ -2,8 +2,36 @@ import { useState } from "react";
 import "./App.css";
 import Content from "./components/Content";
 import Sidebar from "./components/Sidebar";
+import data from "./data";
 
 function App() {
+  const [formData, setFormData] = useState(data);
+
+  function handleUpdateField(section, id, newValue) {
+    setFormData((prevData) => ({
+      ...prevData,
+      [section]: prevData[section].map((item) =>
+        item.id === id ? { ...item, value: newValue } : item
+      ),
+    }));
+  }
+
+  function handleAddSection(section) {
+    const newId = formData[section].length;
+    const newField = formData[section][0]; // Use the first entry as a template
+
+    const updatedSection = {
+      ...newField,
+      id: newId,
+      value: "", // Reset the value for new entry
+    };
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [section]: [...prevData[section], updatedSection],
+    }));
+  }
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -27,6 +55,9 @@ function App() {
           toggleSidebar={toggleSidebar}
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
+          formData={formData}
+          onUpdateField={handleUpdateField}
+          onAddSection={handleAddSection}
         />
       )}
       <Content
@@ -34,6 +65,7 @@ function App() {
         toggleSidebar={toggleSidebar}
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
+        formData={formData}
       />
     </div>
   );
