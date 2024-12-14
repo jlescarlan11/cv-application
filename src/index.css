@@ -8,10 +8,21 @@
 }
 
 :root {
-  font-family: Poppins;
   font-weight: 400;
 
-  /* color-scheme: light dark; */
-  color: #222831;
-  background-color: #eeeeee;
+  --text-color: rgb(34, 40, 49);
+  --secondary-color: rgb(57, 62, 70);
+  --primary-color: rgb(255, 211, 105);
+  --background-color: rgb(238, 238, 238);
+  --accent-color: rgba(34, 40, 49, 0.05);
+  --accent-color-2: rgba(34, 40, 49, 0.1);
+
+  text-size-adjust: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }

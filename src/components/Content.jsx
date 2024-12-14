@@ -18,34 +18,60 @@ const Content = ({
         context="content"
       ></Header>
       <div className="resume-content">
-        <div>
-          <h3>Basic Info</h3>
+        <div className="basic-info">
           <div>
-            {formData.basicInfo.map((item) => (
-              <div key={item.id}>
-                <strong>{item.label}:</strong> {item.value || "(Not Provided)"}
-              </div>
-            ))}
+            <h4>
+              {[
+                formData.basicInfo.find((item) => item.id === 0),
+                formData.basicInfo.find((item) => item.id === 1),
+              ]
+                .map((item) => item?.value || `[${item?.label}]`)
+                .join(" ")}
+            </h4>
+            <div>
+              {formData.basicInfo.find((item) => item.id === 2)?.value ||
+                `[${formData.basicInfo.find((item) => item.id === 2)?.label}]`}
+            </div>
+            <div>
+              {formData.basicInfo
+                .slice(formData.basicInfo.findIndex((item) => item.id === 3))
+                .map((item) => item.value || `[${item.label}]`)
+                .join(", ")}
+            </div>
+          </div>
+        </div>
+        <div className="education-info">
+          <h3>Education</h3>
+          <hr />
+          <div className="education-info-main-container">
+            <div className="education-info-left-container">
+              {formData.educationInfo.slice(0, 3).map((item, index) => (
+                <div key={index}>{item.value || `[${item.label}]`} </div>
+              ))}
+            </div>
+            <div className="education-info-right-container">
+              {formData.educationInfo
+                .slice(3)
+                .map((item, index) => item.value || `[${item.label}]`)
+                .join(" - ")}
+            </div>
           </div>
         </div>
         <div>
-          <h3>Education Info</h3>
-          <div>
-            {formData.educationInfo.map((item) => (
-              <div key={item.id}>
-                <strong>{item.label}:</strong> {item.value || "(Not Provided)"}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3>Experience Info</h3>
-          <div>
-            {formData.experienceInfo.map((item) => (
-              <div key={item.id}>
-                <strong>{item.label}:</strong> {item.value || "(Not Provided)"}
-              </div>
-            ))}
+          <h3>Experience</h3>
+          <hr />
+          <div className="experience-info-main-container">
+            <div className="experience-info-left-container">
+              {formData.experienceInfo.slice(0, 4).map((item, index) => (
+                <div key={index}>{item.value || `[${item.label}]`}</div>
+              ))}
+            </div>
+            <div className="experience-info-right-container">
+              {formData.experienceInfo
+                .slice(4)
+                .map((item, index) => item.value || `[${item.label}]`)
+                .join(" - ")}
+            </div>
           </div>
         </div>
       </div>

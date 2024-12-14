@@ -33,11 +33,11 @@ const Sidebar = ({
         />
         <EducationInfo
           data={formData.educationInfo}
-          onUpdate={(id, value) => onUpdateField("education", id, value)}
+          onUpdate={(id, value) => onUpdateField("educationInfo", id, value)}
         />
         <ExperienceInfo
           data={formData.experienceInfo}
-          onUpdate={(id, value) => onUpdateField("experience", id, value)}
+          onUpdate={(id, value) => onUpdateField("experienceInfo", id, value)}
         />
       </div>
     </aside>

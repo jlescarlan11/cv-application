@@ -9,5 +9,25 @@
 }
 
 .resume-content {
+  color: var(--text-color);
   background-color: white;
+
+  padding: 2.4rem;
+}
+
+.resume-content .title {
+  display: flex;
+  justify-content: center;
+}
+
+.resume-content .basic-info div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education-info-main-container,
+.experience-info-main-container {
+  display: flex;
+  justify-content: space-between;
 }

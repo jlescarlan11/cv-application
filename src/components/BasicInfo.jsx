@@ -20,7 +20,7 @@ const BasicInfo = ({ data, onUpdate }) => {
                 <input
                   value={item.value}
                   onChange={(e) => onUpdate(item.id, e.target.value)}
-                  placeholder={item.placeholder}
+                  placeholder={item.value || item.placeholder}
                   type={item.type}
                 />
               )}
