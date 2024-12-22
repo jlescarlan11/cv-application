@@ -6,6 +6,7 @@ const Header = ({
   isDarkMode,
   toggleDarkMode,
   context,
+  onDownload,
 }) => {
   const renderIcons = () => {
     if (context === "content" && !isSidebarOpen) {
@@ -14,7 +15,9 @@ const Header = ({
           <span className="material-symbols-outlined" onClick={toggleSidebar}>
             view_sidebar
           </span>
-          <span className="material-symbols-outlined">download</span>
+          <span className="material-symbols-outlined" onClick={onDownload}>
+            download
+          </span>
         </>
       );
     } else if (context === "sidebar" && isSidebarOpen) {
@@ -24,7 +27,9 @@ const Header = ({
             <span className="material-symbols-outlined" onClick={toggleSidebar}>
               view_sidebar
             </span>
-            <span className="material-symbols-outlined">download</span>
+            <span className="material-symbols-outlined" onClick={onDownload}>
+              download
+            </span>
           </div>
         </>
       );

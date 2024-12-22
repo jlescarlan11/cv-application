@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import Content from "./components/Content";
 import Sidebar from "./components/Sidebar";
 import data from "./data";
+import html2canvas from "html2canvas";
+
+import { jsPDF } from "jspdf";
 
 function App() {
   const [formData, setFormData] = useState(data);
@@ -15,6 +18,23 @@ function App() {
       ),
     }));
   }
+
+  const contentRef = useRef(); // Reference for the Content component
+
+  const downloadContentAsPDF = () => {
+    const element = contentRef.current; // Access the Content's DOM node
+
+    html2canvas(element).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save("content.pdf");
+    });
+  };
 
   function handleAddSection(section) {
     const newId = formData[section].length;
@@ -58,6 +78,7 @@ function App() {
           formData={formData}
           onUpdateField={handleUpdateField}
           onAddSection={handleAddSection}
+          onDownload={downloadContentAsPDF}
         />
       )}
       <Content
@@ -66,8 +87,8 @@ function App() {
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
         formData={formData}
+        contentRef={contentRef}
       />
-
     </div>
   );
 }

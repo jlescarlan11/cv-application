@@ -14,7 +14,7 @@ const Sidebar = ({
   toggleDarkMode,
   formData,
   onUpdateField,
-  onAddSection,
+  onDownload,
 }) => {
   return (
     <aside className="sidebar">
@@ -23,6 +23,7 @@ const Sidebar = ({
         toggleSidebar={toggleSidebar}
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
+        onDownload={onDownload}
         context="sidebar"
       ></Header>
 

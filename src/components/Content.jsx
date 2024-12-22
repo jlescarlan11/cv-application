@@ -7,6 +7,7 @@ const Content = ({
   isDarkMode,
   toggleDarkMode,
   formData,
+  contentRef,
 }) => {
   return (
     <div className="content">
@@ -17,7 +18,7 @@ const Content = ({
         toggleDarkMode={toggleDarkMode}
         context="content"
       ></Header>
-      <div className="resume-content">
+      <div className="resume-content" ref={contentRef}>
         <div className="basic-info">
           <div>
             <h4>
